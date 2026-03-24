@@ -1,0 +1,1954 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Socialite Sells Academy | Real Iconic Controversial Heirs</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,600&family=Inter:wght@300;400;500;600&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gold: #C9A84C;
+      --gold-light: #E8C96A;
+      --gold-dark: #8B6914;
+      --gold-shimmer: #F5E19A;
+      --black: #0A0A0A;
+      --near-black: #111111;
+      --off-white: #F8F5EE;
+      --white: #FFFFFF;
+      --accent-rose: #D4A5A5;
+      --accent-cream: #F2E8D5;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* ─── CURSOR ─── */
+    .cursor {
+      width: 20px; height: 20px;
+      border: 2px solid var(--gold);
+      border-radius: 50%;
+      position: fixed;
+      top: 0; left: 0;
+      pointer-events: none;
+      z-index: 9999;
+      transition: transform 0.15s ease, border-color 0.3s;
+      mix-blend-mode: difference;
+    }
+    .cursor-dot {
+      width: 6px; height: 6px;
+      background: var(--gold);
+      border-radius: 50%;
+      position: fixed;
+      top: 0; left: 0;
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed;
+      top: 0; width: 100%;
+      z-index: 1000;
+      padding: 1.2rem 4rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background 0.4s, backdrop-filter 0.4s;
+    }
+    nav.scrolled {
+      background: rgba(10,10,10,0.92);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(201,168,76,0.2);
+    }
+    .nav-logo {
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.7rem;
+      color: var(--gold);
+      letter-spacing: 0.02em;
+      text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a {
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+      font-size: 0.78rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-weight: 500;
+      transition: color 0.3s;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px; left: 0;
+      width: 0; height: 1px;
+      background: var(--gold);
+      transition: width 0.3s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-cta {
+      background: var(--gold);
+      color: var(--black) !important;
+      padding: 0.6rem 1.4rem;
+      border-radius: 2px;
+      font-weight: 600 !important;
+    }
+    .nav-cta::after { display: none !important; }
+    .nav-cta:hover { background: var(--gold-light) !important; color: var(--black) !important; }
+
+    /* ─── HERO ─── */
+    #home {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse at 60% 40%, rgba(201,168,76,0.18) 0%, transparent 55%),
+        radial-gradient(ellipse at 20% 80%, rgba(201,168,76,0.10) 0%, transparent 50%),
+        linear-gradient(135deg, rgba(10,10,10,0.92) 0%, rgba(17,17,17,0.85) 100%);
+    }
+    .hero-photo {
+      position: absolute; inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=1920&q=80');
+      background-size: cover;
+      background-position: center top;
+      opacity: 0.22;
+      z-index: 0;
+    }
+    .hero-particles {
+      position: absolute; inset: 0;
+      overflow: hidden;
+    }
+    .particle {
+      position: absolute;
+      width: 2px; height: 2px;
+      background: var(--gold);
+      border-radius: 50%;
+      animation: float-particle linear infinite;
+      opacity: 0;
+    }
+    @keyframes float-particle {
+      0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+      10% { opacity: 1; }
+      90% { opacity: 0.6; }
+      100% { transform: translateY(-100px) rotate(720deg); opacity: 0; }
+    }
+
+    .hero-grid-lines {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
+      background-size: 80px 80px;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 1000px;
+      padding: 0 2rem;
+    }
+    .hero-eyebrow {
+      font-size: 0.72rem;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      opacity: 0;
+      animation: fadeUp 1s forwards 0.3s;
+    }
+    .hero-eyebrow::before, .hero-eyebrow::after {
+      content: '';
+      width: 60px; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold));
+    }
+    .hero-eyebrow::after { background: linear-gradient(90deg, var(--gold), transparent); }
+
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3.5rem, 9vw, 8.5rem);
+      font-weight: 900;
+      line-height: 0.95;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeUp 1s forwards 0.6s;
+    }
+    .hero-title .line-1 { display: block; color: var(--white); }
+    .hero-title .line-2 {
+      display: block;
+      background: linear-gradient(135deg, var(--gold-shimmer), var(--gold), var(--gold-dark));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-style: italic;
+    }
+    .hero-title .line-3 { display: block; color: var(--white); font-size: 0.5em; letter-spacing: 0.1em; font-style: italic; }
+
+    .hero-sub {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+      color: rgba(255,255,255,0.65);
+      font-style: italic;
+      max-width: 600px;
+      margin: 0 auto 3rem;
+      line-height: 1.7;
+      opacity: 0;
+      animation: fadeUp 1s forwards 0.9s;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1.2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeUp 1s forwards 1.2s;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      color: var(--black);
+      padding: 1rem 2.5rem;
+      font-weight: 600;
+      font-size: 0.8rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+      clip-path: polygon(12px 0%, 100% 0%, calc(100% - 12px) 100%, 0% 100%);
+    }
+    .btn-primary::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, var(--gold-shimmer), var(--gold));
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 20px 60px rgba(201,168,76,0.4); }
+    .btn-primary:hover::before { opacity: 1; }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      padding: 1rem 2.5rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 1px solid rgba(201,168,76,0.5);
+      cursor: pointer;
+      transition: all 0.3s;
+      clip-path: polygon(12px 0%, 100% 0%, calc(100% - 12px) 100%, 0% 100%);
+    }
+    .btn-outline:hover {
+      border-color: var(--gold);
+      background: rgba(201,168,76,0.1);
+      color: var(--gold);
+    }
+
+    .hero-scroll-indicator {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      opacity: 0;
+      animation: fadeIn 1s forwards 2s;
+    }
+    .scroll-line {
+      width: 1px; height: 60px;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+      animation: pulse-line 2s ease-in-out infinite;
+    }
+    @keyframes pulse-line {
+      0%, 100% { opacity: 0.4; transform: scaleY(1); }
+      50% { opacity: 1; transform: scaleY(1.2); }
+    }
+    .scroll-text {
+      font-size: 0.6rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      writing-mode: vertical-rl;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* ─── MARQUEE STRIP ─── */
+    .marquee-strip {
+      background: linear-gradient(135deg, var(--gold-dark), var(--gold), var(--gold-light));
+      padding: 1rem 0;
+      overflow: hidden;
+      position: relative;
+    }
+    .marquee-track {
+      display: flex;
+      gap: 3rem;
+      animation: marquee 20s linear infinite;
+      white-space: nowrap;
+    }
+    .marquee-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--black);
+      flex-shrink: 0;
+    }
+    .marquee-item .star { font-size: 1rem; }
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    /* ─── SECTION BASE ─── */
+    section { padding: 8rem 4rem; }
+    .section-eyebrow {
+      font-size: 0.68rem;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .section-eyebrow::before {
+      content: '';
+      width: 40px; height: 1px;
+      background: var(--gold);
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 5vw, 5rem);
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+    }
+    .section-title .gold {
+      background: linear-gradient(135deg, var(--gold-shimmer), var(--gold), var(--gold-dark));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-style: italic;
+    }
+    .container { max-width: 1300px; margin: 0 auto; }
+
+    /* ─── ABOUT ─── */
+    #about {
+      background: var(--near-black);
+      position: relative;
+      overflow: hidden;
+    }
+    #about::before {
+      content: '';
+      position: absolute;
+      top: -200px; right: -200px;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+    }
+    .about-image-wrapper {
+      position: relative;
+    }
+    .about-image-frame {
+      position: relative;
+      aspect-ratio: 3/4;
+      overflow: hidden;
+    }
+    .about-image-frame::before {
+      content: '';
+      position: absolute;
+      inset: -2px;
+      background: linear-gradient(135deg, var(--gold), transparent, var(--gold));
+      z-index: 1;
+    }
+    .about-image-inner {
+      position: relative;
+      z-index: 2;
+      width: calc(100% - 4px);
+      height: calc(100% - 4px);
+      margin: 2px;
+      background: linear-gradient(135deg, #1a1a1a, #222);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .about-placeholder {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+    .about-placeholder img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      transition: transform 0.6s ease;
+    }
+    .about-image-frame:hover .about-placeholder img {
+      transform: scale(1.05);
+    }
+    .floral-corner {
+      position: absolute;
+      font-size: 5rem;
+      opacity: 0.15;
+    }
+    .floral-corner.tl { top: -10px; left: -10px; transform: rotate(180deg); }
+    .floral-corner.br { bottom: -10px; right: -10px; }
+    .about-badge {
+      position: absolute;
+      bottom: 2rem;
+      right: -2rem;
+      background: var(--gold);
+      color: var(--black);
+      padding: 1.5rem;
+      text-align: center;
+      z-index: 3;
+      clip-path: polygon(0 0, 100% 0, 100% 85%, 85% 100%, 0 100%);
+    }
+    .about-badge .number {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      font-weight: 900;
+      display: block;
+      line-height: 1;
+    }
+    .about-badge .label {
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .about-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-style: italic;
+      color: var(--gold-light);
+      line-height: 1.6;
+      margin-bottom: 2rem;
+      position: relative;
+      padding-left: 2rem;
+    }
+    .about-quote::before {
+      content: '"';
+      position: absolute;
+      left: 0; top: -0.5rem;
+      font-size: 4rem;
+      color: var(--gold);
+      font-family: 'Playfair Display', serif;
+      line-height: 1;
+      opacity: 0.5;
+    }
+    .about-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.9;
+      margin-bottom: 1.5rem;
+    }
+    .about-pillars {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-top: 2.5rem;
+    }
+    .pillar {
+      padding: 1.2rem;
+      border: 1px solid rgba(201,168,76,0.2);
+      position: relative;
+      transition: border-color 0.3s, background 0.3s;
+    }
+    .pillar:hover {
+      border-color: var(--gold);
+      background: rgba(201,168,76,0.05);
+    }
+    .pillar::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px; height: 100%;
+      background: var(--gold);
+    }
+    .pillar-icon { font-size: 1.5rem; margin-bottom: 0.5rem; }
+    .pillar-text {
+      font-size: 0.78rem;
+      letter-spacing: 0.05em;
+      color: rgba(255,255,255,0.8);
+      font-weight: 500;
+    }
+
+    /* ─── MISSION BANNER ─── */
+    .mission-banner {
+      background: linear-gradient(135deg, var(--gold-dark) 0%, var(--gold) 50%, var(--gold-light) 100%);
+      padding: 5rem 4rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .mission-banner::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='0.06'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .mission-big {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 4.5rem);
+      font-weight: 900;
+      color: var(--black);
+      line-height: 1.2;
+      position: relative;
+    }
+    .mission-big em {
+      font-style: italic;
+    }
+
+    /* ─── SPEAKING ─── */
+    #speaking { background: var(--black); position: relative; overflow: hidden; }
+    #speaking::after {
+      content: 'SPEAKING';
+      position: absolute;
+      right: -2rem; top: 50%;
+      transform: translateY(-50%) rotate(90deg);
+      font-family: 'Playfair Display', serif;
+      font-size: 10rem;
+      font-weight: 900;
+      color: rgba(201,168,76,0.04);
+      pointer-events: none;
+      white-space: nowrap;
+    }
+    .speaking-header {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      margin-bottom: 5rem;
+      align-items: end;
+    }
+    .speaking-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    .event-card {
+      background: var(--near-black);
+      border: 1px solid rgba(201,168,76,0.15);
+      padding: 2.5rem;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.4s, border-color 0.3s;
+      cursor: pointer;
+    }
+    .event-card-photo {
+      position: absolute; inset: 0;
+      background-size: cover;
+      background-position: center;
+      opacity: 0.08;
+      transition: opacity 0.4s;
+    }
+    .event-card:hover .event-card-photo { opacity: 0.15; }
+    .event-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--gold);
+    }
+    .event-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-light), transparent);
+    }
+    .event-card-glow {
+      position: absolute;
+      top: -50%; left: -50%;
+      width: 200%; height: 200%;
+      background: radial-gradient(circle at center, rgba(201,168,76,0.08) 0%, transparent 60%);
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+    .event-card:hover .event-card-glow { opacity: 1; }
+    .event-date {
+      font-size: 0.65rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .event-type-badge {
+      background: rgba(201,168,76,0.15);
+      color: var(--gold);
+      padding: 0.2rem 0.7rem;
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      border-radius: 20px;
+    }
+    .event-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      line-height: 1.3;
+    }
+    .event-desc {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+    .event-link {
+      color: var(--gold);
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 600;
+      transition: gap 0.3s;
+    }
+    .event-link:hover { gap: 1rem; }
+
+    /* ─── COURSES ─── */
+    #courses {
+      background: var(--near-black);
+      position: relative;
+    }
+    .courses-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      grid-template-rows: auto auto;
+      gap: 1.5rem;
+      margin-top: 4rem;
+    }
+    .course-card {
+      background: #0F0F0F;
+      border: 1px solid rgba(201,168,76,0.12);
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.4s;
+    }
+    .course-card:hover { transform: scale(1.02); }
+    .course-card.featured {
+      grid-row: span 2;
+      border-color: rgba(201,168,76,0.3);
+    }
+    .course-thumbnail {
+      aspect-ratio: 16/9;
+      background: linear-gradient(135deg, #1a1410, #2a1f0e);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .course-card.featured .course-thumbnail {
+      aspect-ratio: 4/3;
+    }
+    .course-thumbnail img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transition: transform 0.5s ease;
+      opacity: 0.65;
+    }
+    .course-card:hover .course-thumbnail img { transform: scale(1.06); }
+    .course-thumbnail-bg {
+      position: absolute; inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 5rem;
+      opacity: 0.1;
+      z-index: 1;
+    }
+    .course-badge {
+      position: absolute;
+      top: 1rem; left: 1rem;
+      background: var(--gold);
+      color: var(--black);
+      padding: 0.3rem 0.8rem;
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+    .course-play {
+      width: 60px; height: 60px;
+      border: 2px solid rgba(201,168,76,0.6);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      color: var(--gold);
+      position: relative;
+      z-index: 1;
+      transition: all 0.3s;
+    }
+    .course-card:hover .course-play {
+      background: var(--gold);
+      color: var(--black);
+      border-color: var(--gold);
+    }
+    .course-info { padding: 1.5rem; }
+    .course-card.featured .course-info { padding: 2rem; }
+    .course-category {
+      font-size: 0.62rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+    }
+    .course-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      line-height: 1.3;
+    }
+    .course-card.featured .course-title { font-size: 1.8rem; }
+    .course-meta {
+      display: flex;
+      gap: 1.5rem;
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.45);
+      margin-bottom: 1rem;
+    }
+    .course-price {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      color: var(--gold);
+      font-weight: 700;
+    }
+
+    /* ─── TESTIMONIALS ─── */
+    #testimonials {
+      background: var(--black);
+      overflow: hidden;
+      position: relative;
+    }
+    .testimonials-container {
+      position: relative;
+    }
+    .testimonials-track {
+      display: flex;
+      gap: 2rem;
+      transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    .testimonial-card {
+      min-width: 400px;
+      background: var(--near-black);
+      border: 1px solid rgba(201,168,76,0.15);
+      padding: 3rem;
+      position: relative;
+      flex-shrink: 0;
+    }
+    .testimonial-card::before {
+      content: '"';
+      position: absolute;
+      top: 1.5rem; left: 2rem;
+      font-family: 'Playfair Display', serif;
+      font-size: 6rem;
+      color: rgba(201,168,76,0.15);
+      line-height: 1;
+    }
+    .testimonial-stars {
+      color: var(--gold);
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.2em;
+    }
+    .testimonial-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+      font-style: italic;
+      color: rgba(255,255,255,0.8);
+      line-height: 1.8;
+      margin-bottom: 2rem;
+    }
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .testimonial-avatar {
+      width: 50px; height: 50px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      color: var(--black);
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+    .testimonial-name {
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-bottom: 0.2rem;
+    }
+    .testimonial-role {
+      font-size: 0.72rem;
+      color: var(--gold);
+      letter-spacing: 0.1em;
+    }
+    .testimonials-nav {
+      display: flex;
+      gap: 1rem;
+      margin-top: 3rem;
+      justify-content: center;
+    }
+    .t-nav-btn {
+      width: 50px; height: 50px;
+      border: 1px solid rgba(201,168,76,0.3);
+      background: transparent;
+      color: var(--gold);
+      cursor: pointer;
+      font-size: 1.2rem;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .t-nav-btn:hover { background: var(--gold); color: var(--black); border-color: var(--gold); }
+
+    /* ─── SHOP ─── */
+    #shop { background: var(--near-black); }
+    .shop-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      margin-top: 4rem;
+    }
+    .shop-item {
+      position: relative;
+      cursor: pointer;
+      group: true;
+    }
+    .shop-item-img {
+      aspect-ratio: 3/4;
+      background: linear-gradient(135deg, #1a1410, #2a1f0e, #1a1410);
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 1.2rem;
+    }
+    .shop-item-img img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .shop-item:hover .shop-item-img img { transform: scale(1.07); }
+    .shop-item-img::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: rgba(201,168,76,0.12);
+      opacity: 0;
+      transition: opacity 0.3s;
+      z-index: 1;
+    }
+    .shop-item:hover .shop-item-img::after { opacity: 1; }
+    .shop-item-icon {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      opacity: 0.15;
+      z-index: 2;
+    }
+    .shop-item-label {
+      position: absolute;
+      top: 1rem; left: 1rem;
+      background: rgba(10,10,10,0.8);
+      backdrop-filter: blur(10px);
+      padding: 0.3rem 0.8rem;
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      border: 1px solid rgba(201,168,76,0.3);
+      color: var(--gold);
+    }
+    .shop-btn-overlay {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: var(--gold);
+      color: var(--black);
+      padding: 0.8rem;
+      text-align: center;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-weight: 700;
+      transform: translateY(100%);
+      transition: transform 0.3s;
+      z-index: 3;
+    }
+    .shop-item:hover .shop-btn-overlay { transform: translateY(0); }
+    .shop-item-label { z-index: 3; }
+    .shop-item-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+    }
+    .shop-item-price {
+      color: var(--gold);
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    /* ─── SUBSCRIBE ─── */
+    #subscribe {
+      background: #0D0A00;
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+    #subscribe .subscribe-bg-photo {
+      position: absolute; inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1504052434569-70ad5836ab65?auto=format&fit=crop&w=1600&q=70');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.07;
+    }
+    #subscribe::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at center, rgba(201,168,76,0.20) 0%, rgba(13,10,0,0.9) 70%);
+      z-index: 1;
+    }
+    #subscribe .subscribe-content { z-index: 2; }
+    .subscribe-content { position: relative; z-index: 1; max-width: 700px; margin: 0 auto; }
+    .subscribe-scripture {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-style: italic;
+      color: var(--gold-light);
+      margin-bottom: 0.5rem;
+      opacity: 0.8;
+    }
+    .subscribe-verse {
+      font-size: 0.7rem;
+      letter-spacing: 0.3em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 3rem;
+    }
+    .subscribe-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      max-width: 500px;
+      margin: 3rem auto 0;
+    }
+    .subscribe-input {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(201,168,76,0.3);
+      color: var(--white);
+      padding: 1rem 1.5rem;
+      font-size: 0.9rem;
+      font-family: 'Inter', sans-serif;
+      outline: none;
+      transition: border-color 0.3s, background 0.3s;
+    }
+    .subscribe-input::placeholder { color: rgba(255,255,255,0.3); }
+    .subscribe-input:focus {
+      border-color: var(--gold);
+      background: rgba(201,168,76,0.05);
+    }
+    .subscribe-perks {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 2.5rem;
+      flex-wrap: wrap;
+    }
+    .perk {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.5);
+    }
+    .perk-icon { color: var(--gold); }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: #050505;
+      padding: 5rem 4rem 2rem;
+      border-top: 1px solid rgba(201,168,76,0.1);
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 4rem;
+      margin-bottom: 4rem;
+    }
+    .footer-brand .logo {
+      font-family: 'Dancing Script', cursive;
+      font-size: 2.2rem;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 1rem;
+    }
+    .footer-brand p {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.8;
+      max-width: 280px;
+      margin-bottom: 1.5rem;
+    }
+    .footer-socials {
+      display: flex;
+      gap: 0.8rem;
+    }
+    .social-btn {
+      width: 38px; height: 38px;
+      border: 1px solid rgba(201,168,76,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+    .social-btn:hover { border-color: var(--gold); color: var(--gold); background: rgba(201,168,76,0.1); }
+    .footer-col h4 {
+      font-size: 0.7rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 0.8rem; }
+    .footer-col ul a {
+      color: rgba(255,255,255,0.45);
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: color 0.3s;
+    }
+    .footer-col ul a:hover { color: var(--gold); }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+    .footer-bottom p {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.25);
+    }
+    .footer-tagline {
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.1rem;
+      color: var(--gold);
+      opacity: 0.6;
+    }
+
+    /* ─── FLOATING ELEMENTS ─── */
+    .floating-cross {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 55px; height: 55px;
+      background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      cursor: pointer;
+      z-index: 500;
+      box-shadow: 0 10px 40px rgba(201,168,76,0.3);
+      animation: bob 3s ease-in-out infinite;
+      text-decoration: none;
+      clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    }
+    @keyframes bob {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    /* ─── SHIMMER TEXT ─── */
+    .shimmer {
+      background: linear-gradient(90deg, var(--gold-dark) 0%, var(--gold-shimmer) 40%, var(--gold) 60%, var(--gold-dark) 100%);
+      background-size: 200%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: shimmer-anim 3s linear infinite;
+    }
+    @keyframes shimmer-anim {
+      from { background-position: 0% center; }
+      to { background-position: 200% center; }
+    }
+
+    /* ─── REVEAL ANIMATION ─── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-40px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .reveal-left.visible { opacity: 1; transform: translateX(0); }
+    .reveal-right {
+      opacity: 0;
+      transform: translateX(40px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .reveal-right.visible { opacity: 1; transform: translateX(0); }
+
+    /* ─── GLOW PULSE ─── */
+    .glow-pulse {
+      animation: glow-pulse 3s ease-in-out infinite;
+    }
+    @keyframes glow-pulse {
+      0%, 100% { box-shadow: 0 0 20px rgba(201,168,76,0.3); }
+      50% { box-shadow: 0 0 60px rgba(201,168,76,0.6); }
+    }
+
+    /* ─── STATS STRIP ─── */
+    .stats-strip {
+      background: var(--black);
+      padding: 4rem;
+      border-top: 1px solid rgba(201,168,76,0.1);
+      border-bottom: 1px solid rgba(201,168,76,0.1);
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      max-width: 1300px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .stat-item { position: relative; }
+    .stat-item::after {
+      content: '';
+      position: absolute;
+      right: 0; top: 20%;
+      height: 60%;
+      width: 1px;
+      background: rgba(201,168,76,0.2);
+    }
+    .stat-item:last-child::after { display: none; }
+    .stat-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.5rem;
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--gold-shimmer), var(--gold));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+    .stat-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+    }
+
+    /* ─── MOBILE NAV ─── */
+    .nav-toggle { display: none; cursor: pointer; color: var(--gold); font-size: 1.5rem; background: none; border: none; }
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(5,5,5,0.98);
+      z-index: 999;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2.5rem;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 700;
+      transition: color 0.3s;
+    }
+    .mobile-menu a:hover { color: var(--gold); }
+    .mobile-close {
+      position: absolute;
+      top: 2rem; right: 2rem;
+      background: none;
+      border: none;
+      color: var(--gold);
+      font-size: 2rem;
+      cursor: pointer;
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 1024px) {
+      .about-grid { grid-template-columns: 1fr; }
+      .about-image-wrapper { max-width: 400px; margin: 0 auto; }
+      .speaking-header { grid-template-columns: 1fr; gap: 1.5rem; }
+      .speaking-grid { grid-template-columns: 1fr 1fr; }
+      .courses-grid { grid-template-columns: 1fr 1fr; }
+      .course-card.featured { grid-row: auto; }
+      .shop-grid { grid-template-columns: 1fr 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+      .stats-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      section { padding: 5rem 1.5rem; }
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      .nav-toggle { display: block; }
+      .speaking-grid { grid-template-columns: 1fr; }
+      .courses-grid { grid-template-columns: 1fr; }
+      .shop-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .about-pillars { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+      .hero-buttons { flex-direction: column; align-items: center; }
+      mission-big { font-size: 2rem; }
+      .stats-grid { grid-template-columns: 1fr 1fr; }
+      .about-badge { right: 0.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- CURSOR -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-dot" id="cursor-dot"></div>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-close" onclick="closeMobileMenu()">✕</button>
+    <a href="#home" onclick="closeMobileMenu()">Home</a>
+    <a href="#about" onclick="closeMobileMenu()">About Jalynn</a>
+    <a href="#speaking" onclick="closeMobileMenu()">Speaking</a>
+    <a href="#courses" onclick="closeMobileMenu()">Courses</a>
+    <a href="#shop" onclick="closeMobileMenu()">Shop</a>
+    <a href="#subscribe" onclick="closeMobileMenu()">Subscribe</a>
+  </div>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <a href="#home" class="nav-logo">Socialite Sells Academy</a>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About Jalynn</a></li>
+      <li><a href="#speaking">Speaking</a></li>
+      <li><a href="#courses">Courses</a></li>
+      <li><a href="#shop">Shop</a></li>
+      <li><a href="#subscribe" class="nav-cta">Join the Academy</a></li>
+    </ul>
+    <button class="nav-toggle" onclick="openMobileMenu()">☰</button>
+  </nav>
+
+  <!-- HERO -->
+  <section id="home">
+    <div class="hero-photo"></div>
+    <div class="hero-bg"></div>
+    <div class="hero-grid-lines"></div>
+    <div class="hero-particles" id="particles"></div>
+
+    <div class="hero-content">
+      <div class="hero-eyebrow">Faith · Business · Legacy</div>
+      <h1 class="hero-title">
+        <span class="line-1">Where Faith</span>
+        <span class="line-2">Meets Empire</span>
+        <span class="line-3">Real. Iconic. Controversial. Heirs.</span>
+      </h1>
+      <p class="hero-sub">
+        Equipping entrepreneurs and real estate professionals to build wealth rooted in Biblical principles — boldly, strategically, and with Kingdom purpose.
+      </p>
+      <div class="hero-buttons">
+        <a href="#courses" class="btn-primary">Explore the Academy</a>
+        <a href="#about" class="btn-outline">Meet Jalynn Craig</a>
+      </div>
+    </div>
+
+    <div class="hero-scroll-indicator">
+      <span class="scroll-text">Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee-strip">
+    <div class="marquee-track">
+      <div class="marquee-item"><span class="star">✦</span> Faith-Focused Business</div>
+      <div class="marquee-item"><span class="star">✦</span> Real Estate Mentorship</div>
+      <div class="marquee-item"><span class="star">✦</span> Kingdom Wealth Building</div>
+      <div class="marquee-item"><span class="star">✦</span> Milk &amp; Honey Club</div>
+      <div class="marquee-item"><span class="star">✦</span> Bold Marketplace Leaders</div>
+      <div class="marquee-item"><span class="star">✦</span> Heir Productions</div>
+      <div class="marquee-item"><span class="star">✦</span> Biblical Entrepreneurship</div>
+      <div class="marquee-item"><span class="star">✦</span> Faith-Focused Business</div>
+      <div class="marquee-item"><span class="star">✦</span> Real Estate Mentorship</div>
+      <div class="marquee-item"><span class="star">✦</span> Kingdom Wealth Building</div>
+      <div class="marquee-item"><span class="star">✦</span> Milk &amp; Honey Club</div>
+      <div class="marquee-item"><span class="star">✦</span> Bold Marketplace Leaders</div>
+      <div class="marquee-item"><span class="star">✦</span> Heir Productions</div>
+      <div class="marquee-item"><span class="star">✦</span> Biblical Entrepreneurship</div>
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats-strip">
+    <div class="stats-grid">
+      <div class="stat-item reveal">
+        <div class="stat-number" data-target="500">0</div>
+        <div class="stat-label">Entrepreneurs Equipped</div>
+      </div>
+      <div class="stat-item reveal">
+        <div class="stat-number" data-target="12">0</div>
+        <div class="stat-label">Weekly Teachings</div>
+      </div>
+      <div class="stat-item reveal">
+        <div class="stat-number" data-target="7">0</div>
+        <div class="stat-label">Years of Mentorship</div>
+      </div>
+      <div class="stat-item reveal">
+        <div class="stat-number" data-target="100">0</div>
+        <div class="stat-label">Kingdom Breakthroughs</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-image-wrapper reveal-left">
+          <div class="about-image-frame">
+            <div class="about-image-inner">
+              <div class="about-placeholder">
+                <img
+                  src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=85"
+                  alt="Jalynn Craig — Founder of Socialite Sells Academy"
+                  onerror="this.style.display='none';this.parentNode.style.background='linear-gradient(135deg,#1a1410,#2a1f0e)'"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="floral-corner tl">🌸</div>
+          <div class="floral-corner br">🌸</div>
+          <div class="about-badge glow-pulse">
+            <span class="number">#1</span>
+            <span class="label">Real Christian<br>Socialite</span>
+          </div>
+        </div>
+
+        <div class="about-content reveal-right">
+          <div class="section-eyebrow">The Founder</div>
+          <h2 class="section-title">
+            Meet <span class="gold">Jalynn Craig</span>
+          </h2>
+          <blockquote class="about-quote">
+            Business is ministry when surrendered to God.
+          </blockquote>
+          <p class="about-text">
+            Jalynn Craig is a faith-driven entrepreneur, marketplace minister, and real estate mentor who dares to be both controversial and Kingdom-focused. She founded Socialite Sells Academy where faith and business collide — not in theory, but in practice, in profit, and in purpose.
+          </p>
+          <p class="about-text">
+            Through the <strong style="color:var(--gold)">Milk &amp; Honey Club on Clubhouse</strong>, powered by Heir Productions, Jalynn leads a global ministry community — standing firmly on God's promises in Ephesians 1 — equipping believers for exponential breakthrough in the marketplace.
+          </p>
+
+          <div class="about-pillars">
+            <div class="pillar">
+              <div class="pillar-icon">📖</div>
+              <div class="pillar-text">Biblical Wealth Principles</div>
+            </div>
+            <div class="pillar">
+              <div class="pillar-icon">🏛️</div>
+              <div class="pillar-text">Real Estate Strategy</div>
+            </div>
+            <div class="pillar">
+              <div class="pillar-icon">👑</div>
+              <div class="pillar-text">Kingdom Influence</div>
+            </div>
+            <div class="pillar">
+              <div class="pillar-icon">🌿</div>
+              <div class="pillar-text">Spiritual Alignment</div>
+            </div>
+          </div>
+
+          <div style="margin-top:2.5rem;">
+            <a href="#courses" class="btn-primary">Walk in Your Inheritance</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MISSION BANNER -->
+  <div class="mission-banner">
+    <p class="mission-big reveal">
+      "We believe business is ministry<br><em>when surrendered to God.</em>"
+    </p>
+    <p style="margin-top:1.5rem;font-size:0.75rem;letter-spacing:0.3em;text-transform:uppercase;color:rgba(0,0,0,0.5);font-weight:600;" class="reveal">— Ephesians 1 | Jalynn Craig</p>
+  </div>
+
+  <!-- SPEAKING -->
+  <section id="speaking">
+    <div class="container">
+      <div class="speaking-header">
+        <div>
+          <div class="section-eyebrow reveal">Speaking Events</div>
+          <h2 class="section-title reveal">
+            Real <span class="gold">Speaking</span><br>Events
+          </h2>
+        </div>
+        <p class="reveal" style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:rgba(255,255,255,0.55);font-style:italic;line-height:1.8;align-self:end;">
+          Jalynn speaks at conferences, summits, and intimate gatherings — bringing bold truth that disrupts comfort zones and activates Kingdom purpose.
+        </p>
+      </div>
+
+      <div class="speaking-grid">
+        <div class="event-card reveal">
+          <div class="event-card-photo" style="background-image:url('https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=800&q=70')"></div>
+          <div class="event-card-glow"></div>
+          <div class="event-date">
+            <span class="event-type-badge">Virtual</span>
+            Weekly · Clubhouse
+          </div>
+          <h3 class="event-title">Milk &amp; Honey Club</h3>
+          <p class="event-desc">Weekly marketplace ministry powered by Heir Productions. Join believers across the globe for breakthrough teachings rooted in God's promises for your business.</p>
+          <a href="#subscribe" class="event-link">Reserve Your Seat →</a>
+        </div>
+
+        <div class="event-card reveal" style="transition-delay:0.15s">
+          <div class="event-card-photo" style="background-image:url('https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=800&q=70')"></div>
+          <div class="event-card-glow"></div>
+          <div class="event-date">
+            <span class="event-type-badge">Live</span>
+            Gainesville, FL
+          </div>
+          <h3 class="event-title">Kingdom Entrepreneurs Summit</h3>
+          <p class="event-desc">An immersive experience where faith-driven leaders come together for strategic guidance, marketplace mentorship, and powerful encounters with purpose.</p>
+          <a href="#subscribe" class="event-link">Get Notified →</a>
+        </div>
+
+        <div class="event-card reveal" style="transition-delay:0.3s">
+          <div class="event-card-photo" style="background-image:url('https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=800&q=70')"></div>
+          <div class="event-card-glow"></div>
+          <div class="event-date">
+            <span class="event-type-badge">Keynote</span>
+            Nationwide
+          </div>
+          <h3 class="event-title">Real Estate &amp; Faith Intensive</h3>
+          <p class="event-desc">Book Jalynn for your next corporate event, conference, or women's gathering. She delivers bold, transformational messages that marry strategy with scripture.</p>
+          <a href="#subscribe" class="event-link">Book Jalynn →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COURSES -->
+  <section id="courses">
+    <div class="container">
+      <div class="section-eyebrow reveal">Iconic Courses</div>
+      <h2 class="section-title reveal">Build <span class="gold">Iconic</span> Wealth</h2>
+
+      <div class="courses-grid">
+        <div class="course-card featured reveal">
+          <div class="course-thumbnail">
+            <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=900&q=80" alt="Kingdom Wealth Mastery" onerror="this.style.display='none'" />
+            <div class="course-thumbnail-bg">👑</div>
+            <div class="course-badge">FLAGSHIP</div>
+            <div class="course-play">▶</div>
+          </div>
+          <div class="course-info">
+            <div class="course-category">Real Estate · Faith · Business</div>
+            <h3 class="course-title">The Heir Collective: Kingdom Wealth Mastery</h3>
+            <div class="course-meta">
+              <span>12 Modules</span>
+              <span>Live Q&amp;A</span>
+              <span>Community Access</span>
+            </div>
+            <p style="font-size:0.85rem;color:rgba(255,255,255,0.5);line-height:1.7;margin-bottom:1.5rem;">The complete system for building wealth rooted in biblical principles. From real estate strategy to marketplace authority — this is your inheritance blueprint.</p>
+            <div style="display:flex;justify-content:space-between;align-items:center;">
+              <span class="course-price">$997</span>
+              <a href="#subscribe" class="btn-primary" style="font-size:0.7rem;padding:0.7rem 1.5rem;">Enroll Now</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="course-card reveal" style="transition-delay:0.1s">
+          <div class="course-thumbnail">
+            <img src="https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=700&q=80" alt="Real Estate" onerror="this.style.display='none'" />
+            <div class="course-thumbnail-bg">🏠</div>
+            <div class="course-play" style="width:45px;height:45px;font-size:0.9rem;">▶</div>
+          </div>
+          <div class="course-info">
+            <div class="course-category">Real Estate</div>
+            <h3 class="course-title">Real Beauty in Real Estate</h3>
+            <div class="course-meta"><span>8 Modules</span></div>
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-top:0.5rem;">
+              <span class="course-price">$497</span>
+              <a href="#subscribe" class="event-link" style="font-size:0.68rem;">Enroll →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="course-card reveal" style="transition-delay:0.2s">
+          <div class="course-thumbnail">
+            <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=700&q=80" alt="Bold Marketplace" onerror="this.style.display='none'" />
+            <div class="course-thumbnail-bg">⚡</div>
+            <div class="course-play" style="width:45px;height:45px;font-size:0.9rem;">▶</div>
+          </div>
+          <div class="course-info">
+            <div class="course-category">Business</div>
+            <h3 class="course-title">Bold in the Marketplace</h3>
+            <div class="course-meta"><span>6 Modules</span></div>
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-top:0.5rem;">
+              <span class="course-price">$297</span>
+              <a href="#subscribe" class="event-link" style="font-size:0.68rem;">Enroll →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="course-card reveal" style="transition-delay:0.3s">
+          <div class="course-thumbnail">
+            <img src="https://images.unsplash.com/photo-1504052434569-70ad5836ab65?auto=format&fit=crop&w=700&q=80" alt="Steward Influence" onerror="this.style.display='none'" />
+            <div class="course-thumbnail-bg">🌿</div>
+            <div class="course-play" style="width:45px;height:45px;font-size:0.9rem;">▶</div>
+          </div>
+          <div class="course-info">
+            <div class="course-category">Faith + Finance</div>
+            <h3 class="course-title">Steward Your Influence</h3>
+            <div class="course-meta"><span>5 Modules</span></div>
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-top:0.5rem;">
+              <span class="course-price">$197</span>
+              <a href="#subscribe" class="event-link" style="font-size:0.68rem;">Enroll →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="course-card reveal" style="transition-delay:0.4s">
+          <div class="course-thumbnail">
+            <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=700&q=80" alt="Daughters & Sons of God" onerror="this.style.display='none'" />
+            <div class="course-thumbnail-bg">🕊️</div>
+            <div class="course-play" style="width:45px;height:45px;font-size:0.9rem;">▶</div>
+          </div>
+          <div class="course-info">
+            <div class="course-category">Mindset</div>
+            <h3 class="course-title">Daughters &amp; Sons of God</h3>
+            <div class="course-meta"><span>4 Modules</span></div>
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-top:0.5rem;">
+              <span class="course-price">$147</span>
+              <a href="#subscribe" class="event-link" style="font-size:0.68rem;">Enroll →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="testimonials" style="padding-bottom:8rem;">
+    <div class="container">
+      <div class="section-eyebrow reveal">Testimonials</div>
+      <h2 class="section-title reveal" style="margin-bottom:3rem;">What <span class="gold">Heirs</span> Are Saying</h2>
+
+      <div class="testimonials-container">
+        <div class="testimonials-track" id="testimonialsTrack">
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">"Jalynn doesn't just teach business strategy — she teaches you how to become who God called you to be in the marketplace. This academy changed my life and my revenue."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">M</div>
+              <div>
+                <div class="testimonial-name">Minister Danielle M.</div>
+                <div class="testimonial-role">Real Estate Investor · Atlanta, GA</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">"I was doing business without God at the center. After joining the Heir Collective, I closed three deals in one month and finally feel aligned with my purpose."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">T</div>
+              <div>
+                <div class="testimonial-name">Tasha B.</div>
+                <div class="testimonial-role">Entrepreneur · Houston, TX</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">"The Milk &amp; Honey Club is unlike any community I've ever been part of. It's a safe space to grow spiritually while getting real, actionable business wisdom."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">R</div>
+              <div>
+                <div class="testimonial-name">Rachel O.</div>
+                <div class="testimonial-role">Online Boutique Owner · Miami, FL</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">"Jalynn Craig is the mentor I didn't know I needed. Bold, anointed, and strategic — she walks the walk. My business grew 300% in six months following her teachings."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">J</div>
+              <div>
+                <div class="testimonial-name">Jordan K.</div>
+                <div class="testimonial-role">Real Estate Agent · Orlando, FL</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">"Finally — a mentorship that doesn't make me choose between God and my goals. Socialite Sells Academy gave me permission to be ALL of who God made me in business."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">A</div>
+              <div>
+                <div class="testimonial-name">Angela W.</div>
+                <div class="testimonial-role">Faith Coach · Gainesville, FL</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonials-nav">
+          <button class="t-nav-btn" id="tPrev">←</button>
+          <button class="t-nav-btn" id="tNext">→</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SHOP -->
+  <section id="shop">
+    <div class="container">
+      <div class="section-eyebrow reveal">The Shop</div>
+      <h2 class="section-title reveal">Wear Your <span class="gold">Inheritance</span></h2>
+
+      <div class="shop-grid">
+        <div class="shop-item reveal">
+          <div class="shop-item-img">
+            <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&w=600&q=80" alt="The Heir's Blueprint Book" onerror="this.style.display='none'" />
+            <div class="shop-item-label">Book</div>
+            <div class="shop-btn-overlay">Add to Cart</div>
+          </div>
+          <div class="shop-item-name">The Heir's Blueprint</div>
+          <div class="shop-item-price">$24.99</div>
+        </div>
+
+        <div class="shop-item reveal" style="transition-delay:0.1s">
+          <div class="shop-item-img">
+            <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=600&q=80" alt="Heir Productions Music" onerror="this.style.display='none'" />
+            <div class="shop-item-label">Music</div>
+            <div class="shop-btn-overlay">Purchase</div>
+          </div>
+          <div class="shop-item-name">Heir Productions — Vol. 1</div>
+          <div class="shop-item-price">$12.99</div>
+        </div>
+
+        <div class="shop-item reveal" style="transition-delay:0.2s">
+          <div class="shop-item-img">
+            <img src="https://images.unsplash.com/photo-1554568218-0f1715e72254?auto=format&fit=crop&w=600&q=80" alt="Real Iconic Heirs Apparel" onerror="this.style.display='none'" />
+            <div class="shop-item-label">Apparel</div>
+            <div class="shop-btn-overlay">Shop Now</div>
+          </div>
+          <div class="shop-item-name">"Real Iconic Heirs" Tee</div>
+          <div class="shop-item-price">$39.99</div>
+        </div>
+
+        <div class="shop-item reveal" style="transition-delay:0.3s">
+          <div class="shop-item-img">
+            <img src="https://images.unsplash.com/photo-1476231682828-37e571bc172f?auto=format&fit=crop&w=600&q=80" alt="Kingdom Devotional" onerror="this.style.display='none'" />
+            <div class="shop-item-label">Devotional</div>
+            <div class="shop-btn-overlay">Add to Cart</div>
+          </div>
+          <div class="shop-item-name">Kingdom Daily Devotional</div>
+          <div class="shop-item-price">$19.99</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUBSCRIBE -->
+  <section id="subscribe">
+    <div class="subscribe-bg-photo"></div>
+    <div class="subscribe-content">
+      <div class="section-eyebrow reveal" style="justify-content:center;">Join the Movement</div>
+      <h2 class="section-title reveal" style="text-align:center;">
+        Enter Your <span class="gold">Promised Land</span>
+      </h2>
+      <p class="subscribe-scripture reveal">
+        "Blessed are those who trust in the Lord, whose trust is the Lord."
+      </p>
+      <p class="subscribe-verse reveal">— Jeremiah 17:7</p>
+
+      <form class="subscribe-form reveal" onsubmit="handleSubscribe(event)">
+        <input type="text" class="subscribe-input" placeholder="Your First Name" required id="subName" />
+        <input type="email" class="subscribe-input" placeholder="Your Email Address" required id="subEmail" />
+        <button type="submit" class="btn-primary" style="cursor:pointer;font-size:0.8rem;letter-spacing:0.15em;">
+          Join the Academy — It's Free to Start
+        </button>
+        <div id="subscribeMsg" style="display:none;color:var(--gold);font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-style:italic;margin-top:0.5rem;">
+          Welcome, Heir! Check your inbox for next steps. ✨
+        </div>
+      </form>
+
+      <div class="subscribe-perks reveal">
+        <div class="perk"><span class="perk-icon">✦</span> Weekly Faith &amp; Business Teachings</div>
+        <div class="perk"><span class="perk-icon">✦</span> Milk &amp; Honey Club Access</div>
+        <div class="perk"><span class="perk-icon">✦</span> Kingdom Wealth Strategies</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid container">
+      <div class="footer-brand">
+        <span class="logo">Socialite Sells Academy</span>
+        <p>Where faith and business collide. Equipping the next generation of Kingdom entrepreneurs to build wealth, lead boldly, and honor God in every marketplace.</p>
+        <p style="font-size:0.78rem;color:rgba(255,255,255,0.3);">4760 SW 18th Pl, Gainesville, FL 32607</p>
+        <div class="footer-socials" style="margin-top:1rem;">
+          <a href="#" class="social-btn">in</a>
+          <a href="#" class="social-btn">ig</a>
+          <a href="#" class="social-btn">fb</a>
+          <a href="#" class="social-btn">yt</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About Jalynn</a></li>
+          <li><a href="#speaking">Speaking Events</a></li>
+          <li><a href="#courses">Iconic Courses</a></li>
+          <li><a href="#shop">Shop</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Academy</h4>
+        <ul>
+          <li><a href="#courses">Heir Collective</a></li>
+          <li><a href="#courses">Real Estate Courses</a></li>
+          <li><a href="#speaking">Milk &amp; Honey Club</a></li>
+          <li><a href="#speaking">Book Jalynn</a></li>
+          <li><a href="#subscribe">Free Resources</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="#subscribe">Join the Academy</a></li>
+          <li><a href="#subscribe">Newsletter</a></li>
+          <li><a href="mailto:info@socialiteacademy.co">Email Us</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Use</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom container">
+      <p>© 2026 Socialite Sells Academy · socialiteacademy.co · All Rights Reserved</p>
+      <p class="footer-tagline">Real Iconic Controversial Heirs ✦</p>
+    </div>
+  </footer>
+
+  <!-- FLOATING ELEMENT -->
+  <a href="#home" class="floating-cross" title="Back to Top">✦</a>
+
+  <script>
+    // ─── CURSOR ───
+    const cursor = document.getElementById('cursor');
+    const dot = document.getElementById('cursor-dot');
+    let mouseX = 0, mouseY = 0, curX = 0, curY = 0;
+    document.addEventListener('mousemove', e => {
+      mouseX = e.clientX; mouseY = e.clientY;
+      dot.style.left = (e.clientX - 3) + 'px';
+      dot.style.top = (e.clientY - 3) + 'px';
+    });
+    function animateCursor() {
+      curX += (mouseX - curX) * 0.1;
+      curY += (mouseY - curY) * 0.1;
+      cursor.style.left = (curX - 10) + 'px';
+      cursor.style.top = (curY - 10) + 'px';
+      requestAnimationFrame(animateCursor);
+    }
+    animateCursor();
+
+    // ─── NAV SCROLL ───
+    window.addEventListener('scroll', () => {
+      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    // ─── PARTICLES ───
+    const particlesEl = document.getElementById('particles');
+    for (let i = 0; i < 30; i++) {
+      const p = document.createElement('div');
+      p.className = 'particle';
+      p.style.cssText = `
+        left: ${Math.random() * 100}%;
+        width: ${Math.random() * 3 + 1}px;
+        height: ${Math.random() * 3 + 1}px;
+        animation-duration: ${Math.random() * 15 + 8}s;
+        animation-delay: ${Math.random() * 10}s;
+        opacity: ${Math.random() * 0.6 + 0.2};
+      `;
+      particlesEl.appendChild(p);
+    }
+
+    // ─── MOBILE MENU ───
+    function openMobileMenu() { document.getElementById('mobileMenu').classList.add('open'); }
+    function closeMobileMenu() { document.getElementById('mobileMenu').classList.remove('open'); }
+
+    // ─── REVEAL ON SCROLL ───
+    const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+    const revealObs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); }
+      });
+    }, { threshold: 0.12 });
+    revealEls.forEach(el => revealObs.observe(el));
+
+    // ─── COUNTER ANIMATION ───
+    const counters = document.querySelectorAll('[data-target]');
+    const counterObs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          const target = +e.target.dataset.target;
+          const suffix = target >= 100 ? '+' : target >= 10 ? '+' : '';
+          let count = 0;
+          const step = target / 60;
+          const timer = setInterval(() => {
+            count = Math.min(count + step, target);
+            e.target.textContent = Math.floor(count) + suffix;
+            if (count >= target) clearInterval(timer);
+          }, 25);
+          counterObs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.5 });
+    counters.forEach(c => counterObs.observe(c));
+
+    // ─── TESTIMONIAL SLIDER ───
+    const track = document.getElementById('testimonialsTrack');
+    const cardWidth = 420;
+    let tIndex = 0;
+    const maxIndex = track.children.length - 1;
+
+    document.getElementById('tNext').addEventListener('click', () => {
+      tIndex = Math.min(tIndex + 1, maxIndex - 1);
+      track.style.transform = `translateX(-${tIndex * cardWidth}px)`;
+    });
+    document.getElementById('tPrev').addEventListener('click', () => {
+      tIndex = Math.max(tIndex - 1, 0);
+      track.style.transform = `translateX(-${tIndex * cardWidth}px)`;
+    });
+
+    // ─── SUBSCRIBE FORM ───
+    function handleSubscribe(e) {
+      e.preventDefault();
+      const msg = document.getElementById('subscribeMsg');
+      msg.style.display = 'block';
+      document.getElementById('subName').value = '';
+      document.getElementById('subEmail').value = '';
+    }
+
+    // ─── HOVER GLOW ON EVENT CARDS ───
+    document.querySelectorAll('.event-card').forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        const x = ((e.clientX - rect.left) / rect.width) * 100;
+        const y = ((e.clientY - rect.top) / rect.height) * 100;
+        const glow = card.querySelector('.event-card-glow');
+        if (glow) glow.style.background = `radial-gradient(circle at ${x}% ${y}%, rgba(201,168,76,0.12) 0%, transparent 60%)`;
+      });
+    });
+
+    // ─── SMOOTH SCROLL for nav ───
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
